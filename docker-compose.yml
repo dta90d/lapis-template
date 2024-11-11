@@ -1,12 +1,11 @@
-version: '3'
+version: '3.8'
 services:
-  openresty:
+  template-lapis:
+    container_name: template-lapis
     build:
-      context: ./container/openresty
-      args:
-        - DUID
-        - DGID
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      LAPIS_TYPE: "lua"
     ports:
-      - "8080:8080"
-    volumes:
-      - ./html:/app:Z
+      - "7000:8080"
