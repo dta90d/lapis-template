@@ -26,3 +26,4 @@ Start the container by running
 ```bash
 docker compose up --build
 ```
+Test server will be up at http://localhost:7000.
