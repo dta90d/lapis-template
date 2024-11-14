@@ -27,3 +27,19 @@ Start the container by running
 docker compose up --build
 ```
 Test server will be up at http://localhost:7000.
+
+## Example for debugging POST requests.
+```lua
+-- app.lua
+
+local lapis = require("lapis")
+local json_params = require("lapis.application").json_params
+local inspect = require("inspect")
+
+local app = lapis.Application()
+
+app:post("/api/example", json_params(function(self)
+    -- print( inspect( self.params ) )
+    return { json = { ok = true } }
+end))
+```
